@@ -172,19 +172,26 @@ export default function App() {
       <header className={`border-b px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between sticky top-0 z-10 backdrop-blur-sm ${
         darkMode ? 'bg-zinc-900/90 border-zinc-800' : 'bg-white/90 border-zinc-200'
       }`}>
-        <div className="flex items-center gap-2">
-          <div className="w-7 h-7 rounded-lg bg-indigo-600 flex items-center justify-center shrink-0">
+        <motion.div
+          whileHover={{ scale: 1.04 }}
+          transition={{ type: 'spring', stiffness: 400 }}
+          className="flex items-center gap-2 cursor-default"
+        >
+          <div className="w-7 h-7 rounded-lg bg-indigo-600 flex items-center justify-center shrink-0 transition-shadow hover:shadow-lg hover:shadow-indigo-500/40">
             <GraduationCap className="w-4 h-4 text-white" />
           </div>
           <span className="font-bold text-sm tracking-tight">College Semester</span>
-        </div>
-        <button
+        </motion.div>
+        <motion.button
+          whileHover={{ scale: 1.1, rotate: 15 }}
+          whileTap={{ scale: 0.9 }}
+          transition={{ type: 'spring', stiffness: 400 }}
           onClick={() => setDarkMode(!darkMode)}
           className={`p-2 rounded-lg transition-colors ${darkMode ? 'bg-zinc-800 hover:bg-zinc-700 text-zinc-300' : 'bg-zinc-100 hover:bg-zinc-200 text-zinc-600'}`}
           aria-label="Toggle theme"
         >
           {darkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-        </button>
+        </motion.button>
       </header>
 
       {/* ── MAIN ── */}
@@ -204,15 +211,18 @@ export default function App() {
           </div>
 
           {/* PDF Card */}
-          <div className={`w-full rounded-2xl border p-5 sm:p-7 flex flex-col items-center gap-4 sm:gap-5 shadow-xl transition-colors ${
-            darkMode ? 'bg-zinc-900 border-zinc-800 shadow-indigo-950/30' : 'bg-white border-zinc-200 shadow-zinc-200/60'
-          }`}>
+          <motion.div
+            whileHover={{ y: -6, boxShadow: '0 25px 50px -12px rgba(99,102,241,0.25)' }}
+            transition={{ type: 'spring', stiffness: 250, damping: 20 }}
+            className={`w-full rounded-2xl border p-5 sm:p-7 flex flex-col items-center gap-4 sm:gap-5 shadow-xl transition-colors ${
+              darkMode ? 'bg-zinc-900 border-zinc-800 shadow-indigo-950/30' : 'bg-white border-zinc-200 shadow-zinc-200/60'
+            }`}>
 
             {/* PDF icon */}
             <motion.div
-              whileHover={{ scale: 1.08, rotate: -3 }}
+              whileHover={{ scale: 1.12, rotate: -6 }}
               transition={{ type: 'spring', stiffness: 300 }}
-              className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-lg shadow-indigo-500/30"
+              className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-lg shadow-indigo-500/30 cursor-pointer"
             >
               <FileText className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
             </motion.div>
@@ -222,16 +232,22 @@ export default function App() {
 
             {/* Download button */}
             <motion.button
-              whileTap={{ scale: 0.97 }}
-              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.04, boxShadow: '0 10px 30px -5px rgba(99,102,241,0.5)' }}
+              transition={{ type: 'spring', stiffness: 350 }}
               onClick={handleDownload}
               className="w-full flex items-center justify-center gap-2 sm:gap-2.5 bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-bold text-sm py-3 sm:py-3.5 px-4 sm:px-6 rounded-xl transition-all shadow-lg shadow-indigo-500/25 cursor-pointer"
             >
-              <Download className="w-4 h-4 shrink-0" />
+              <motion.span
+                whileHover={{ x: -2 }}
+                transition={{ type: 'spring', stiffness: 400 }}
+              >
+                <Download className="w-4 h-4 shrink-0" />
+              </motion.span>
               Download PDF
             </motion.button>
 
-          </div>
+          </motion.div>
         </motion.div>
       </main>
 
