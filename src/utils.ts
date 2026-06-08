@@ -50,3 +50,30 @@ export function cleanUrl(url: string): string {
   }
   return url;
 }
+
+/**
+ * Converts a GitHub blob URL to a raw download URL.
+ * e.g. https://github.com/user/repo/blob/main/file.pdf
+ *   -> https://raw.githubusercontent.com/user/repo/main/file.pdf
+ * Also accepts raw URLs and github.com/user/repo/raw/... links — returns as-is.
+ */
+export function toGitHubRawUrl(url: string): string {
+  if (!url) return url;
+
+  // Already a raw URL
+  if (url.includes('raw.githubusercontent.com')) return url;
+
+  // github.com/user/repo/raw/branch/file -> raw.githubusercontent.com
+  const rawMatch = url.match(/github\.com\/([^/]+)\/([^/]+)\/raw\/(.+)/);
+  if (rawMatch) {
+    return `https://raw.githubusercontent.com/${rawMatch[1]}/${rawMatch[2]}/${rawMatch[3]}`;
+  }
+
+  // github.com/user/repo/blob/branch/file -> raw.githubusercontent.com
+  const blobMatch = url.match(/github\.com\/([^/]+)\/([^/]+)\/blob\/(.+)/);
+  if (blobMatch) {
+    return `https://raw.githubusercontent.com/${blobMatch[1]}/${blobMatch[2]}/${blobMatch[3]}`;
+  }
+
+  return url;
+}
