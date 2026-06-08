@@ -1,0 +1,6 @@
+{
+  "name": "PDF Share and Download Portal",
+  "description": "Upload PDFs, manage their associated GitHub source or mirror links, and share them for others to browse and download.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
