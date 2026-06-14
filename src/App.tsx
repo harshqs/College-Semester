@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { Download, FileText, Moon, Sun, GraduationCap, Sparkles, BookOpen } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
-const PDF_URL = 'https://raw.githubusercontent.com/harshqs/College-Seamester/main/Answer%20me.pdf';
-const PDF_NAME = 'testbro.pdf';
+const PDF_URL = 'https://raw.githubusercontent.com/harshqs/College-Semester/main/Introduction%20of%20C++.pdf';
+const PDF_NAME = 'Introduction to C++.pdf';
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(true);
@@ -114,12 +114,12 @@ export default function App() {
               >
                 <div className="inline-flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/20 px-3 py-1 rounded-full">
                   <BookOpen className="w-3 h-3 text-indigo-400" />
-                  <span className="text-[10px] font-mono text-indigo-300 tracking-widest uppercase">Academic Portal</span>
+                  <span className="text-[10px] font-mono text-indigo-300 tracking-widest uppercase">Notes Portal</span>
                 </div>
                 <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-white leading-none">
-                  College
+                  Code
                   <span className="block bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
-                    Semester
+                    Pe Charcha
                   </span>
                 </h1>
                 <p className="text-zinc-400 text-xs sm:text-sm">Your notes. Anytime. Anywhere.</p>
@@ -180,7 +180,7 @@ export default function App() {
           <div className="w-7 h-7 rounded-lg bg-indigo-600 flex items-center justify-center shrink-0 transition-shadow hover:shadow-lg hover:shadow-indigo-500/40">
             <GraduationCap className="w-4 h-4 text-white" />
           </div>
-          <span className="font-bold text-sm tracking-tight">College Semester</span>
+          <span className="font-bold text-sm tracking-tight">Code Pe Charcha</span>
         </motion.div>
         <motion.button
           whileHover={{ scale: 1.1, rotate: 15 }}
@@ -228,7 +228,7 @@ export default function App() {
             </motion.div>
 
             {/* File name */}
-            <h2 className="font-bold text-lg sm:text-xl text-center">testbro.pdf</h2>
+            <h2 className="font-bold text-lg sm:text-xl text-center">Introduction to C++</h2>
 
             {/* Download button */}
             <motion.button
@@ -253,7 +253,7 @@ export default function App() {
 
       {/* ── FOOTER ── */}
       <footer className={`text-center text-xs py-4 sm:py-5 px-4 ${darkMode ? 'text-zinc-700' : 'text-zinc-400'}`}>
-        College Semester · Notes Portal
+        Code Pe Charcha · Notes Portal
       </footer>
 
     </div>

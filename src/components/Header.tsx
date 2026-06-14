@@ -30,20 +30,21 @@ export default function Header({ pdfCount, darkMode, toggleDarkMode }: HeaderPro
                 <span className={`font-display font-bold text-lg leading-tight tracking-tight transition-colors ${
                   darkMode ? 'text-white' : 'text-zinc-900'
                 }`}>
-                  College Seamester
+                  Code Pe Charcha
                 </span>
                 <span className={`inline-flex items-center rounded-md px-2 py-0.5 text-[10px] font-bold font-mono tracking-wider uppercase border transition-colors ${
                   darkMode 
                     ? 'bg-zinc-900 text-indigo-400 border-zinc-800' 
                     : 'bg-indigo-50 text-indigo-700 border-indigo-100'
                 }`}>
-                  v3.0
+                  v1.0.0
                 </span>
               </div>
               <p className={`text-xs font-sans tracking-tight transition-colors ${
                 darkMode ? 'text-zinc-450' : 'text-zinc-500'
               }`}>
-                College Shared Ledger Engine
+                We share those notes or cheat sheats which are usefull for you not for filling
+                pages of notebooks.
               </p>
             </div>
           </div>
